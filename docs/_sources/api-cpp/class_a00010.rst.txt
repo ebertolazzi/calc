@@ -1,0 +1,16 @@
+.. _exhale_class_a00010:
+
+Template Class Calculator
+=========================
+
+- Defined in :ref:`file_calc.hh`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: calc_defs::Calculator
+   :members:
+   :protected-members:
+   :undoc-members:

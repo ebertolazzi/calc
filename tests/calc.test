@@ -1,0 +1,95 @@
+##############################################################################
+#                                                                            #
+#     I N P U T  F I L E  for X O P T I M A - R M  S O F T W A R E           #                                                                            #
+#     T O  S E L E C T   R O A D/C I R C U I T  G E O M E T R Y              #
+#                                                                            #
+##############################################################################
+##############################################################################
+#  THE ROAD/CIRCUIT IS DESCRIBED BY SEGMENTS (STRAIGHT LINES AND ARC OF      #
+#  CIRCLE). EACH SEGMENT IS DEFINED BY:                                      #
+#                                                                            #
+#   - LENGHT                                                                 #
+#   - CURVATURE (0 = STRAIGHT LINE, 1/R FOR CIRCULAR PATH,                   #
+#                WHERE R IS THE CURVATURE RADIUS)                            #
+#   - WIDTH                                                                  #
+#                                                                            #
+#   THE OTHER VARIABLES ARE WORKING VARIABLES                                #
+#                                                                            #
+#   OPTIONS:                                                                 #
+#    s_begin            = initial abscissa curvilinea.                       #
+#                         It could be each point within the whole road track #
+#    s_end              = final abscissa curvilinea                          #
+#                         It could be each point within the whole road track #
+#                         It must be greater than "s_begin"                  #
+#   number_of_segments  = NUMBER OF SEGMENTS THE ROAD IS MADE OF.            #
+#   addenstation_factor = 0 - MESH POINT AT THE SAME DISTANCE                #
+#                             AS GIVEN BY mesh_step_lenght.                  #
+#   addenstation_factor > 0 - MESH POINT MORE DENSE ON EACH SEGMENT BORDER   #
+#                             MAXIMUM MESH POINT DISTANCE IS GIVEN BY        #
+#                             mesh_step_lenght VALUE.                        #
+#   mesh_step_lenght    = MESH POINT DISTANCE (WHEN addenstation_factor = 0) #
+#                         MAXIMUM MESH POINT DISTANCE (WHEN                  #
+#                         addenstation_factor > 0)                           #
+#                                                                            #
+##############################################################################
+
+
+# TYPE OF CURVE: U CURVE
+#
+# U CURVE____________________________________________________________________
+
+# INITIAL VALUES FOR ROAD VARIABLES__________________________________________
+theta0 = 0.0  # initial orientation in x-y plane
+s0     = 0.0  # initial curvilinear abscissa: 
+x0     = 0.0  # initial x position of road middle line
+y0     = 0.0  # initial y position of road middle line
+
+# SEGMENT DESCRIPTIONS_______________________________________________________
+
+i=0
+# FIRST SEGMENT: STRAIGHT LINE
+i=i+1
+K@i                  = 0
+L@i                  = 100
+W@i                  = 6
+legal_speed_limit@i  = 1000
+speed_constraint@i   = 1000
+adherence@i          = 1
+step_lenght@i        = 1
+
+# CORNER: 180¡ DEGREE ANGLE
+i=i+1
+angle@i             = pi
+radius@i            = 100
+K@i                 = 1/radius@i
+L@i                 = angle@i*radius@i
+W@i                 = 6
+legal_speed_limit@i = 1000
+speed_constraint@i  = 1000
+adherence@i         = 1
+step_lenght@i       = 1
+
+# THIRD SEGMENT: STRAIGHT LINE
+i=i+1
+K@i                 = 0
+L@i                 = 90
+W@i                 = 6
+legal_speed_limit@i = 1000 
+speed_constraint@i  = 1000
+adherence@i         = 1
+step_lenght@i       = 1
+
+# THIRD SEGMENT: STRAIGHT LINE
+i=i+1
+K@i                 = 0
+L@i                 = 10
+W@i                 = 6
+legal_speed_limit@i = 1000 
+speed_constraint@i  = 1000
+adherence@i         = 1
+step_lenght@i       = 1
+
+number_of_segments  = i
+
+# OPTIONS FOR MESH __________________________________________________________
+mesh_step_lenght   = 1

@@ -1,0 +1,350 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper]{geometry}
+\geometry{text={6.5in,9in}, top=1.2in, nohead}
+
+\usepackage{times}
+
+% \usepackage[math]{easyeqn}
+% \usepackage{easybmat}
+% \usepackage[definevectors]{easyvector}
+% \usepackage{easybmat}
+\usepackage{fancyvrb,color}
+
+\newcommand{\NUMBER}[1]{\ensuremath{#1}}
+\newcommand{\METHOD}[1]{\texttt{\color{blue}#1}}
+\renewcommand{\verb}{\SaveVerb[aftersave=\texttt{\color{red}\UseVerb{verb}}]{verb}}
+
+\DefineVerbatimEnvironment{code}{Verbatim}
+{fontsize=\normalsize,formatcom=\color{blue},baselinestretch=1}
+
+\DefineVerbatimEnvironment{ncode}{Verbatim}
+{fontsize=\normalsize, baselinestretch=1,
+ numberblanklines=false,numbersep=5pt,numbers=left}
+
+\title{\verb|Calculator|: an Expression Evaluator Class}
+\author{Enrico Bertolazzi}
+\date{\normalfont\small\itshape
+     Dipartimento di Ingegneria Meccanica e Strutturale\\
+     Universit\`a degli Studi di Trento\\
+     via Mesiano 77, I -- 38050 Trento, Italia\\
+     \texttt{Enrico.Bertolazzi@ing.unitn.it}\\
+     \bigskip
+     Release 4.1}
+
+\sloppy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    This document presents a C++ class for run-time evaluation of
+    simple symbolic expressions.  This is particularly suitable to
+    facilitates the input process from free format files.  The C++
+    compiler must support templates, namespaces and exceptions.
+\end{abstract}
+
+\section{Including the class \texttt{Calculator$<$...$>$}}
+%%
+The software consists of a single header file \verb|calc.hh|. There is no 
+\verb|.a| or \verb|.so| files to be linked.
+The \verb|calc.hh| facilities are available by the following inclusion 
+statement:
+\begin{code}
+  # include "calc.hh"
+  using namespace calc_load ;
+\end{code}
+%%
+\section{Instantiating an expression evaluator.}
+%%
+The instantiation process of an expression evaluator requires the
+specification of its template type.  The statement
+%%
+\begin{code}
+  Calculator<double> ee ;
+\end{code}
+%%
+instantiates the object \verb|ee| which in this case is an 
+expression evaluator operating on \verb|double|s.
+
+\section{Parsing a string}
+%%
+The object \verb|ee| can now be used to parse simple symbolic expressions
+input as strings,
+%%
+\begin{code}
+  bool err = ee . parse("1+sin(3.5)/4") ;
+\end{code}
+%%
+the boolean variable \verb|err| is set \textit{true} when a parsing 
+error is found. The function \METHOD{get\_value()} returns the value 
+resulting from the parsing process:
+%%
+\begin{code}
+  double res = ee . get_value() ;
+\end{code}
+%%
+When an error is produced, an error report explaining what went wrong
+can be print out by the class method \METHOD{report\_error}, as
+for example in the following piece of source:
+%%
+\begin{code}
+  ee . report_error(cout) ;
+\end{code}
+%%
+The input string to the method \METHOD{parse} can contain 
+more than one expression. Individual expressions must be 
+separated by the end-of-statement separator "\verb|;|".
+%%
+\begin{code}
+  err = ee . parse("a=1+sin(3) ; b=1-sin(3) ; sqrt(a*b)") ;
+\end{code}
+%%
+In the case of a multiple expression parsing, the class method 
+\METHOD{get\_value()} returns only the last evaluated value.
+In the previous example this is \verb|a*b|.
+%%
+Notice also that the assignement symbol "\verb|=|" makes possible the 
+memorization of intermediate expression values in other variables.
+
+\section{Operators}
+%%
+The expression evaluator uses a fixed number of operators, that are
+listed in order of precedence as follows
+%%
+\begin{itemize}
+    \item[\verb|\#|]
+    the rest of the string is a comment (and clearly ignored);
+    
+    \item[\verb|+|,\verb|-|]
+    binary addition and subtraction, e.g. \verb|10+2; 3-4.2|;
+    
+    \item[\verb|*|,\verb|/|]
+    binary multiplication and division, e.g. \verb|2.3*4.9; 2/4|;
+    
+    \catcode`\^11\relax
+    \item[\verb|^|]
+    \catcode`\^=7\relax
+    power, e.g. \verb|10^4| (results $10000$);
+    
+    \item[\verb|+|,\verb|-|]
+    unary \verb|+| and \verb|-|, e.g. \verb|+120; 12+-12|;
+   
+    \item[\verb|(|,\verb|)|]
+    parenthesis are use to change operator precedence; for example
+    the expression
+    \verb|12-(2-2)| evaluates to \verb|12| while \verb|12-2-2| evaluates
+    to \verb|8|;
+    
+    \item[\verb|;|]
+    expression separator;
+    
+    \item[\verb|=|]
+    assignement operator.
+\end{itemize}
+
+\section{Symbolic Constants}
+%%
+Two symbolic constants are available whose value is assigned by default:
+%%
+\begin{center}
+  \begin{tabular}{|l|l|}
+    \hline
+    \verb|e|  & \texttt{2.71828182845904523536} \\
+    \verb|pi| & \texttt{3.14159265358979323846} \\
+    \hline
+  \end{tabular}
+\end{center}
+%%
+They can be used in symbolic expressions like the following one:
+%%
+\begin{code}
+  e + sin(pi*0.5) ;
+\end{code}
+%%
+
+\section{Predefined Functions}
+%%
+In the previous section we used the function \verb|sin|. There are a number of
+predefined functions which can be used in symbolic expressions. The following
+table lists them.
+%%
+\begin{center}
+  \begin{tabular}{|l|l|}
+    \hline
+    \verb|abs(x)|     &   absolute value of \verb|x| \\
+    \verb|pos(x)|     &   positive part of \verb|x| \\
+    \verb|neg(x)|     &   negative part of \verb|x| \\
+    \verb|cos(x)|     &   cosine of \verb|x| \\
+    \verb|sin(x)|     &   sine of \verb|x| \\
+    \verb|tan(x)|     &   tangent of \verb|x| \\
+    \verb|asin(x)|    &   arcsin of \verb|x| \\
+    \verb|acos(x)|    &   arccos of \verb|x| \\
+    \verb|atan(x)|    &   arctan of \verb|x| \\
+    \verb|cosh(x)|    &   hyperbolic cosine of \verb|x| \\
+    \verb|sinh(x)|    &   hyperbolic sine of \verb|x| \\
+    \verb|tanh(x)|    &   hyperbolic tangent of \verb|x| \\
+    \verb|exp(x)|     &   exponential of \verb|x| \\
+    \verb|log(x)|     &   natural logarithm of \verb|x| \\
+    \verb|log10(x)|   &   base \NUMBER{10} logarithm of \verb|x| \\
+    \verb|sqrt(x)|    &   square root of of \verb|x| \\
+    \verb|ceil(x)|    &   least integer over \verb|x| \\
+    \verb|floor(x)|   &   great integer under \verb|x| \\
+    \hline
+    \verb|max(x,y)|   &   maximum of \verb|{x,y}| \\
+    \verb|min(x,y)|   &   minimum of \verb|{x,y}| \\
+    \verb|atan2(x,y)| &   arctan of \verb|y/x| \\
+    \verb|pow(x,y)|   &   power $x^{y}$ \\
+    \hline
+  \end{tabular}
+\end{center}
+
+
+\section{Defining new functions}
+%%
+A new function can be introduced into the expression
+evaluator by defining it as static and then 
+passing the evaluator its name and address pointer
+by using the two evaluator facilities \METHOD{set\_unary\_fun} 
+and \METHOD{set\_binary\_fun}. 
+%%
+The following example illustrates the mechanism. Let us first
+define the two static functions:
+%%
+\begin{code}
+  static double power2(double const a)
+  { return a*a ; }
+  
+  static double add(double const a, double const b)
+  { return a+b ; }
+\end{code}
+%%
+Then let us add \verb|power2| and \verb|add| to the current
+expression evaluator as follows:
+%%
+\begin{code}
+  ee . set_unary_fun("power2",power2) ;
+  ee . set_binary_fun("add",add) ;
+\end{code}
+%%
+These new functions can now be invoked in symbolic expressions 
+as the predefined ones:
+%%
+\begin{code}
+  err = ee . parse("power2(add(2,e))") ;
+\end{code}
+%%
+The expression evaluator is capable of handling only unary and 
+binary functions, i.e. functions with one or two arguments.
+
+\section{Defining new variables}
+%%
+New variables can be introduced into the expression evaluator by using
+the method \METHOD{set} or the assignement operator.
+For example, the following piece of source code defines the new variable 
+\verb|abc| and initialize it to the value \verb|1/3| 
+%%
+\begin{code}
+  err = ee . parse("abc = 1/3") ;
+  ee . set("abc",1.0/3.0) ;
+\end{code}
+%% 
+The first statements uses the parse method and the assignement operator
+\verb|=| of the expression evaluator. The parse method evaluates the 
+expression on the right of \verb|=| and then assigns the parsing result 
+to the variable on the right. 
+%%
+If the variable should not exist it would be created and assigned.
+
+The second statement creates -- if needed -- and assigns directly the 
+variable. Once created and initilized, the variable can be used in 
+the next operations; for example
+%%
+\begin{code}
+  err = ee . parse("zz = abc*sin(3)/(1+abc)") ;
+\end{code}
+%%
+In this case the new variable \verb|zz| is also created.
+A variable is a string which always begins with a letter and may be
+followed by any sequence of alphanumeric characters, such as numbers, letters or 
+the underscore symbols like \verb|_|.  
+
+
+The \METHOD{exist} return true if its argument is a 
+defined variable, as in
+%%
+\begin{code}
+  bool ex1 = ee . exist("abc") ;
+  bool ex2 = ee . exist("pippo") ;
+\end{code}
+%%
+In this case \verb|ex1| is set to true and \verb|ex2| to false.
+It is possible to get out the value of a variable, 
+%%
+\begin{code}
+  double val1 = ee . get("abc") ;
+  double val2 = ee . get("pippo") ;
+\end{code}
+%%
+The value of \verb|val1| is 0.333333 while \verb|val2| is null 
+because the variable \verb|pippo| does not exist.
+
+\section{Parsing a file}
+%%
+The expression evaluator can be used to parse a complete
+file. The parsing process proceeds by reading the file 
+one line at a time and parsing it. Use the method
+%%
+\begin{code}
+  ee . parse_file("filename", true) ;
+\end{code}
+%%
+The boolean \verb|true| in the second entry asks the 
+expression evaluator for proceeding in verbose mode, 
+that is for printing out on \verb|cerr| input errors
+when detected. If the flag was set to \verb|false|,
+reading would proceed silently and errors ignored.
+
+For example, consider the following input file:
+%%
+\begin{code}
+# this is a comment line
+gamma = 1.4
+# set left state
+rin = 1 # density
+vin = 0 # velocity
+pin = 1 # pressure
+ein = rin*vin*vin/2+pin/(gamma-1)
+
+# set right state
+rout = 0.125
+vout = 0
+pout = 0.1
+eout = rin*vin*vin/2+pout/(gamma-1)
+\end{code}
+%%
+If a program needs as input parameters \verb|rin|, \verb|vin|,
+\verb|ein|, \verb|rout|, \verb|vout|, \verb|eout| the following 
+piece of code
+%%
+\begin{code}
+  ee . parse_file("file.data", true) ;
+  double rin  = ee . get("rin") ;
+  double vin  = ee . get("vin") ;
+  double ein  = ee . get("ein") ;
+  double rout = ee . get("rout") ;
+  double vout = ee . get("vout") ;
+  double eout = ee . get("eout") ;
+\end{code}
+%%
+does the work. The advantages of using expression evaluators in reading
+input files are multiples:
+%%
+\begin{itemize}
+    \item a free input format is easily usable;
+    \item comments can be added everywhere therein;
+    \item simple computations may be inserted as part of an
+          input file.
+\end{itemize}
+%%
+
+\end{document}
