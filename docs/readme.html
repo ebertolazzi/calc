@@ -1,0 +1,568 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>Calculator &#8212; Calculator v1.0
+</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C++ API" href="api-cpp/library_root.html" />
+    <link rel="prev" title="Calculator" href="index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="api-cpp/library_root.html" title="C++ API"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Calculator"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Calculator</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Calculator</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="calculator">
+<h1>Calculator<a class="headerlink" href="#calculator" title="Permalink to this headline">¶</a>
+</h1>
+<p>An Expression Evaluator Class for run-time evaluation of simple symbolic
+expressions. This is particularly suitable to facilitates the input
+process from free format files.
+(online manual <a class="reference external" href="https://ebertolazzi.github.io/calc">here</a>)</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a>
+</h2>
+<section id="including-the-class-calculator">
+<h3>Including the class Calculator&lt;…&gt;<a class="headerlink" href="#including-the-class-calculator" title="Permalink to this headline">¶</a>
+</h3>
+<p>The software consists of a single header file <code class="docutils literal notranslate"><span class="pre">calc.hh</span></code>. There is no
+<code class="docutils literal notranslate"><span class="pre">.a</span></code> or <code class="docutils literal notranslate"><span class="pre">.so</span></code> files to be linked.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">calc.hh</span></code> facilities are available by the following inclusion
+statement:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">"calc.hh"</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">calc_load</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="instantiating-an-expression-evaluator">
+<h3>Instantiating an expression evaluator.<a class="headerlink" href="#instantiating-an-expression-evaluator" title="Permalink to this headline">¶</a>
+</h3>
+<p>The instantiation process of an expression evaluator requires the
+specification of its template type. The statement</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">Calculator</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">ee</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>instantiates the object <code class="docutils literal notranslate"><span class="pre">ee</span></code> which in this case is an expression
+evaluator operating on <code class="docutils literal notranslate"><span class="pre">double</span></code>’s.</p>
+</section>
+</section>
+<section id="parsing-a-string">
+<h2>Parsing a string<a class="headerlink" href="#parsing-a-string" title="Permalink to this headline">¶</a>
+</h2>
+<p>The object <code class="docutils literal notranslate"><span class="pre">ee</span></code> can now be used to parse simple symbolic expressions
+input as strings,</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">err</span> <span class="o">=</span> <span class="n">ee</span> <span class="p">.</span> <span class="n">parse</span><span class="p">(</span><span class="s">"1+sin(3.5)/4"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>the boolean variable <code class="docutils literal notranslate"><span class="pre">err</span></code> is set <code class="docutils literal notranslate"><span class="pre">true</span></code> when a parsing error is
+found. The function <code class="docutils literal notranslate"><span class="pre">get_value()</span></code> returns the value resulting from the
+parsing process:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">res</span> <span class="o">=</span> <span class="n">ee</span> <span class="p">.</span> <span class="n">get_value</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>When an error is produced, an error report explaining what went wrong
+can be print out by the class method <code class="docutils literal notranslate"><span class="pre">report_error</span></code>, as for example in
+the following piece of source:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">ee</span><span class="p">.</span><span class="n">report_error</span><span class="p">(</span><span class="n">cout</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The input string to the method @c parse can contain more than one
+expression. Individual expressions must be separated by the
+end-of-statement separator <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">err</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s">"a=1+sin(3); b=1-sin(3); sqrt(a*b)"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In the case of a multiple expression parsing, the class method
+<code class="docutils literal notranslate"><span class="pre">get_value()</span></code> returns only the last evaluated value.</p>
+<p>In the previous example this is <code class="docutils literal notranslate"><span class="pre">a*b</span></code>.</p>
+<p>Notice also that the assignement symbol <code class="docutils literal notranslate"><span class="pre">=</span></code> makes possible the
+memorization of intermediate expression values in other variables.</p>
+</section>
+<section id="operators">
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a>
+</h2>
+<p>The expression evaluator uses a fixed number of operators, that are
+listed in order of precedence as follows</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> the rest of the string is a comment (and clearly ignored);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> binary addition and subtraction, e.g.</p></li>
+</ul>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="mf">-4.2</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> binary multiplication and division, e.g.</p></li>
+</ul>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="mf">2.3</span><span class="o">*</span><span class="mf">4.9</span><span class="p">;</span> <span class="mi">2</span><span class="o">/</span><span class="mi">4</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> power, e.g.</p></li>
+</ul>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>10^4 # (results 10000);
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> unary <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code>, e.g.</p></li>
+</ul>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>+120; 12+-12;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code> parenthesis are use to change operator precedence; for
+example the expression <code class="docutils literal notranslate"><span class="pre">12-(2-2)</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">12</span></code> while
+<code class="docutils literal notranslate"><span class="pre">12-2-2</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">8</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">;</span></code> expression separator;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> assignement operator.</p></li>
+</ul>
+</section>
+<section id="predefined-functions">
+<h2>Predefined Functions<a class="headerlink" href="#predefined-functions" title="Permalink to this headline">¶</a>
+</h2>
+<p>In the previous section we used the function @c sin. There are a number
+of predefined functions which can be used in symbolic expressions. In
+the following we lists them.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> absolute value of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pos(x)</span></code> positive part of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neg(x)</span></code> negative part of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cos(x)</span></code> cosine of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sin(x)</span></code> sine of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tan(x)</span></code> tangent of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asin(x)</span></code> arcsin of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">acos(x)</span></code> arccos of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atan(x)</span></code> arctan of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cosh(x)</span></code> hyperbolic cosine of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sinh(x)</span></code> hyperbolic sine of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tanh(x)</span></code> hyperbolic tangent of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exp(x)</span></code> exponential of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log(x)</span></code> natural logarithm of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log10(x)</span></code> base <code class="docutils literal notranslate"><span class="pre">10</span></code> logarithm of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqrt(x)</span></code> square root of of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ceil(x)</span></code> least integer over <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">floor(x)</span></code> great integer under <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max(x,y)</span></code> maximum of <code class="docutils literal notranslate"><span class="pre">{x,y}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min(x,y)</span></code> minimum of <code class="docutils literal notranslate"><span class="pre">{x,y}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atan2(x,y)</span></code> arctan of <code class="docutils literal notranslate"><span class="pre">y/x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pow(x,y)</span></code> power <code class="docutils literal notranslate"><span class="pre">x^y</span></code></p></li>
+</ul>
+</section>
+<section id="defining-new-functions">
+<h2>Defining new functions<a class="headerlink" href="#defining-new-functions" title="Permalink to this headline">¶</a>
+</h2>
+<p>A new function can be introduced into the expression evaluator by
+defining it as static and then passing the evaluator its name and
+address pointer by using the two evaluator facilities <code class="docutils literal notranslate"><span class="pre">set_unary_fun</span></code>
+and <code class="docutils literal notranslate"><span class="pre">set_binary_fun</span></code>.</p>
+<p>The following example illustrates the mechanism. Let us first define the
+two static functions:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">double</span> <span class="n">power2</span><span class="p">(</span><span class="kt">double</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">double</span> <span class="n">add</span><span class="p">(</span><span class="kt">double</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Then let us add @c power2 and @c add to the current expression evaluator
+as follows:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">ee</span><span class="p">.</span><span class="n">set_unary_fun</span><span class="p">(</span><span class="s">"power2"</span><span class="p">,</span><span class="n">power2</span><span class="p">);</span>
+<span class="n">ee</span><span class="p">.</span><span class="n">set_binary_fun</span><span class="p">(</span><span class="s">"add"</span><span class="p">,</span><span class="n">add</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>These new functions can now be invoked in symbolic expressions as the
+predefined ones:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">err</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s">"power2(add(2,e))"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The expression evaluator is capable of handling only unary and binary
+functions, i.e. functions with one or two arguments.</p>
+</section>
+<section id="symbolic-constants">
+<h2>Symbolic Constants<a class="headerlink" href="#symbolic-constants" title="Permalink to this headline">¶</a>
+</h2>
+<p>Two symbolic constants are available whose value is assigned by default:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">e</span></code> = 2.71828182845904523536</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pi</span></code> = 3.14159265358979323846</p></li>
+</ul>
+<p>They can be used in symbolic expressions like the following one:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="mf">0.5</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="defining-new-variables">
+<h2>Defining new variables<a class="headerlink" href="#defining-new-variables" title="Permalink to this headline">¶</a>
+</h2>
+<p>New variables can be introduced into the expression evaluator by using
+the method <code class="docutils literal notranslate"><span class="pre">set</span></code> or the assignement operator. For example, the
+following piece of source code defines the new variable <code class="docutils literal notranslate"><span class="pre">abc</span></code> and
+initialize it to the value <code class="docutils literal notranslate"><span class="pre">1/3</span></code>:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">err</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s">"abc = 1/3"</span><span class="p">);</span>
+<span class="n">ee</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"abc"</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The first statements uses the parse method and the assignement operator
+<code class="docutils literal notranslate"><span class="pre">=</span></code> of the expression evaluator. The parse method evaluates the
+expression on the right of <code class="docutils literal notranslate"><span class="pre">=</span></code> and then assigns the parsing result to
+the variable on the right.</p>
+<p>If the variable should not exist it would be created and assigned.</p>
+<p>The second statement creates - if needed - and assigns directly the
+variable. Once created and initilized, the variable can be used in the
+next operations; for example</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">err</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s">"zz = abc*sin(3)/(1+abc)"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this case the new variable <code class="docutils literal notranslate"><span class="pre">zz</span></code> is also created. A variable is a
+string which always begins with a letter and may be followed by any
+sequence of alphanumeric characters, such as numbers, letters or the
+underscore symbols like <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">exist</span></code> return true if its argument is a defined variable, as in</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">ex1</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">exist</span><span class="p">(</span><span class="s">"abc"</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="n">ex2</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">exist</span><span class="p">(</span><span class="s">"pippo"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this case @c ex1 is set to true and @c ex2 to false. It is possible
+to get out the value of a variable,</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">ok</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">val1</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"abc"</span><span class="p">,</span><span class="n">ok</span><span class="p">);</span>
+<span class="kt">double</span> <span class="n">val2</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"pippo"</span><span class="p">,</span><span class="n">ok</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The value of <code class="docutils literal notranslate"><span class="pre">val1</span></code> is <code class="docutils literal notranslate"><span class="pre">0.333333</span></code> while <code class="docutils literal notranslate"><span class="pre">val2</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code> because
+the variable <code class="docutils literal notranslate"><span class="pre">pippo</span></code> does not exist. The variable <code class="docutils literal notranslate"><span class="pre">ok</span></code> takes the
+value <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> if the variable exists or not exists
+respectively.</p>
+</section>
+<section id="parsing-a-file">
+<h2>Parsing a file<a class="headerlink" href="#parsing-a-file" title="Permalink to this headline">¶</a>
+</h2>
+<p>The expression evaluator can be used to parse a complete file. The
+parsing process proceeds by reading the file one line at a time and
+parsing it. Use the method</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">ee</span><span class="p">.</span><span class="n">parse_file</span><span class="p">(</span><span class="s">"filename"</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The boolean <code class="docutils literal notranslate"><span class="pre">true</span></code> in the second entry asks the expression evaluator
+for proceeding in verbose mode, that is for printing out on <code class="docutils literal notranslate"><span class="pre">cerr</span></code>
+input errors when detected. If the flag was set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, reading
+would proceed silently and errors ignored.</p>
+<p>For example, consider the following input file:</p>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span># this is a comment line
+gamma = 1.4
+# set left state
+rin = 1 # density
+vin = 0 # velocity
+pin = 1 # pressure
+ein = rin*vin*vin/2+pin/(gamma-1)
+
+# set right state
+rout = 0.125
+vout = 0
+pout = 0.1
+eout = rin*vin*vin/2+pout/(gamma-1)
+</pre></div>
+</div>
+<p>If a program needs as input parameters <code class="docutils literal notranslate"><span class="pre">rin</span></code>, <code class="docutils literal notranslate"><span class="pre">vin</span></code>, <code class="docutils literal notranslate"><span class="pre">ein</span></code>,
+<code class="docutils literal notranslate"><span class="pre">rout</span></code>, <code class="docutils literal notranslate"><span class="pre">vout</span></code>, <code class="docutils literal notranslate"><span class="pre">eout</span></code> the following piece of code</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">ee</span><span class="p">.</span><span class="n">parse_file</span><span class="p">(</span><span class="s">"file.data"</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="n">ok</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">rin</span>  <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"rin"</span><span class="p">,</span><span class="n">ok</span><span class="p">);</span>
+<span class="kt">double</span> <span class="n">vin</span>  <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"vin"</span><span class="p">,</span><span class="n">ok</span><span class="p">);</span>
+<span class="kt">double</span> <span class="n">ein</span>  <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"ein"</span><span class="p">,</span><span class="n">ok</span><span class="p">);</span>
+<span class="kt">double</span> <span class="n">rout</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"rout"</span><span class="p">,</span><span class="n">ok</span><span class="p">);</span>
+<span class="kt">double</span> <span class="n">vout</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"vout"</span><span class="p">,</span><span class="n">ok</span><span class="p">);</span>
+<span class="kt">double</span> <span class="n">eout</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"eout"</span><span class="p">,</span><span class="n">ok</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>does the work. The advantages of using expression evaluators in reading
+input files are multiples:</p>
+<ul class="simple">
+<li><p>a free input format is easily usable;</p></li>
+<li><p>comments can be added everywhere therein;</p></li>
+<li><p>simple computations may be inserted as part of an input file.</p></li>
+</ul>
+</section>
+<section id="a-simple-calculator">
+<h2>A simple calculator<a class="headerlink" href="#a-simple-calculator" title="Permalink to this headline">¶</a>
+</h2>
+<p>This piece of code is a complete simple expression evaluator working as
+a calculator:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cp"># include "calc.hh"</span>
+
+<span class="k">using</span> <span class="n">calc</span><span class="o">::</span><span class="n">Calculator</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="n">Calculator</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="kt">unsigned</span><span class="o">&gt;</span> <span class="n">CALC</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">string</span> <span class="n">str</span><span class="p">;</span>
+  <span class="n">CALC</span> <span class="o">*</span> <span class="n">parse</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CALC</span><span class="p">();</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"&gt; "</span><span class="p">;</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">str</span><span class="p">)</span> <span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">str</span> <span class="o">==</span> <span class="s">"end"</span>  <span class="o">||</span> <span class="n">str</span> <span class="o">==</span> <span class="s">"bye"</span> <span class="o">||</span>
+         <span class="n">str</span> <span class="o">==</span> <span class="s">"quit"</span> <span class="o">||</span> <span class="n">str</span> <span class="o">==</span> <span class="s">"exit"</span>  <span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">str</span> <span class="o">==</span> <span class="s">"list"</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">parse</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="kt">bool</span> <span class="n">err</span><span class="p">;</span>
+      <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="n">parse</span><span class="o">-&gt;</span><span class="n">parse</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="n">err</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="n">err</span> <span class="p">)</span> <span class="n">parse</span><span class="o">-&gt;</span><span class="n">report_error</span><span class="p">(</span><span class="n">cout</span><span class="p">);</span>
+      <span class="k">else</span>       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">bye</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="k">delete</span> <span class="n">parse</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>when run</p>
+<div class="highlight-bash notranslate">
+<div class="highlight"><pre><span></span>&gt; <span class="m">1</span>+1
+<span class="m">2</span>
+&gt; <span class="nv">a</span> <span class="o">=</span> <span class="m">2</span>
+<span class="m">2</span>
+&gt; <span class="nv">b</span> <span class="o">=</span> pi
+<span class="m">3</span>.14159
+&gt; a*b
+<span class="m">6</span>.28319
+&gt;
+</pre></div>
+</div>
+<p>can have a list of commands</p>
+<div class="highlight-bash notranslate">
+<div class="highlight"><pre><span></span>&gt; list
+
+UNARY FUNCTIONS
+abs, acos, asin, atan, ceil, cos, cosh, exp, floor, log, log10, neg, pos, sin, sinh, sqrt, tan, tanh,
+
+BINARY FUNCTIONS
+atan2, max, min, pow,
+
+VARIABLES
+<span class="nv">a</span> <span class="o">=</span> <span class="m">2</span>
+<span class="nv">b</span> <span class="o">=</span> <span class="m">3</span>.14159
+<span class="nv">e</span> <span class="o">=</span> <span class="m">2</span>.71828
+<span class="nv">pi</span> <span class="o">=</span> <span class="m">3</span>.14159
+END LIST
+&gt;
+</pre></div>
+</div>
+</section>
+<section id="developer">
+<h2>Developer<a class="headerlink" href="#developer" title="Permalink to this headline">¶</a>
+</h2>
+<blockquote>
+<div>
+<div class="line-block">
+<div class="line">Enrico Bertolazzi</div>
+<div class="line">Dipartimento di Ingegneria Industriale</div>
+<div class="line">Università degli Studi di Trento</div>
+<div class="line"><script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">znvygb:raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script></div>
+<div class="line">homepage: <a class="reference external" href="https://e.bertolazzi.dii.unitn.it">https://e.bertolazzi.dii.unitn.it</a>
+</div>
+</div>
+</div>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This code is inspired by the <code class="docutils literal notranslate"><span class="pre">Expression</span> <span class="pre">Evaluator</span></code>
+of Mark Morley (c) 1992.</p>
+</div>
+</section>
+</section>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/99-999775_calculate-the-cost-price-calculate-icon.png" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#including-the-class-calculator">Including the class Calculator&lt;…&gt;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instantiating-an-expression-evaluator">Instantiating an expression evaluator.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parsing-a-string">Parsing a string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operators">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#predefined-functions">Predefined Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-new-functions">Defining new functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#symbolic-constants">Symbolic Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-new-variables">Defining new variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parsing-a-file">Parsing a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-simple-calculator">A simple calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developer">Developer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-cpp/library_root.html">C++ API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="api-cpp/library_root.html" title="C++ API"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Calculator"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Calculator</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Calculator</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Enrico Bertolazzi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

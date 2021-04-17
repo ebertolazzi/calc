@@ -1,1 +1,10 @@
 t
+*.log
+*.aux
+*.synctex.*
+docs_build/sphinx/_build
+docs_build/sphinx/api-cpp
+docs_build/xml-*
+old
+tests/calc_test
+tests/testall
