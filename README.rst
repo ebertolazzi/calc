@@ -125,28 +125,31 @@ In the previous section we used the function @c sin. There are a number
 of predefined functions which can be used in symbolic expressions. In
 the following we lists them.
 
--  ``abs(x)`` absolute value of ``x``
--  ``pos(x)`` positive part of ``x``
--  ``neg(x)`` negative part of ``x``
--  ``cos(x)`` cosine of ``x``
--  ``sin(x)`` sine of ``x``
--  ``tan(x)`` tangent of ``x``
--  ``asin(x)`` arcsin of ``x``
--  ``acos(x)`` arccos of ``x``
--  ``atan(x)`` arctan of ``x``
--  ``cosh(x)`` hyperbolic cosine of ``x``
--  ``sinh(x)`` hyperbolic sine of ``x``
--  ``tanh(x)`` hyperbolic tangent of ``x``
--  ``exp(x)`` exponential of ``x``
--  ``log(x)`` natural logarithm of ``x``
--  ``log10(x)`` base ``10`` logarithm of ``x``
--  ``sqrt(x)`` square root of of ``x``
--  ``ceil(x)`` least integer over ``x``
--  ``floor(x)`` great integer under ``x``
--  ``max(x,y)`` maximum of ``{x,y}``
--  ``min(x,y)`` minimum of ``{x,y}``
--  ``atan2(x,y)`` arctan of ``y/x``
--  ``pow(x,y)`` power ``x^y``
++----------------+----------------------------+-------------+-----------------------------+
+|  function      |       description          |  function   |       description           |
++================+============================+=============+=============================+
+| `abs(x)`       | absolute value of `x`      | `pos(x)`    | positive part of `x`        |
++----------------+----------------------------+-------------+-----------------------------+
+| `neg(x)`       | negative part of `x`       | `cos(x)`    | cosine of `x`               |
++----------------+----------------------------+-------------+-----------------------------+
+| `sin(x)`       | sine of `x`                | `tan(x)`    | tangent of `x`              |
++----------------+----------------------------+-------------+-----------------------------+
+| `asin(x)`      | arcsin of `x`              | `acos(x)`   | arccos of `x`               |
++----------------+----------------------------+-------------+-----------------------------+
+| `atan(x)`      | arctan of `x`              | `cosh(x)`   | hyperbolic cosine of `x`    |
++----------------+----------------------------+-------------+-----------------------------+
+| `sinh(x)`      | hyperbolic sine of `x`     | `tanh(x)`   | hyperbolic tangent of `x`   |
++----------------+----------------------------+-------------+-----------------------------+
+| `exp(x)`       | exponential of `x`         | `log(x)`    | natural logarithm of `x`    |
++----------------+----------------------------+-------------+-----------------------------+
+| `log10(x)`     | base 10 logarithm of `x`   | `sqrt(x)`   | square root of of `x`       |
++----------------+----------------------------+-------------+-----------------------------+
+| `ceil(x)`      | least integer over `x`     | `floor(x)`  | great integer under `x`     |
++----------------+----------------------------+-------------+-----------------------------+
+| `max(x,y)`     | maximum of `{x,y}`         | `min(x,y)`  | minimum of `{x,y}`          |
++----------------+----------------------------+-------------+-----------------------------+
+| `atan2(x,y)`   | arctan of `y/x`            | `pow(x,y)`  | power `x^y`                 |
++----------------+----------------------------+-------------+-----------------------------+
 
 Defining new functions
 ----------------------

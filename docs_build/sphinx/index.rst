@@ -9,16 +9,25 @@ process from free format files.
 
 **Gituh homepage** `here <https://github.com/ebertolazzi/calc>`__.
 
+PDF Manual
+----------
+
+A pdf version of the manual can be downloaded
+`from here <pdf-manual/calc.pdf>`__
+
+Contents
+--------
+
 .. toctree::
    :maxdepth: 2
 
    readme.rst
-   manual.rst
    api-cpp/root.rst
 
 ----
 
 License
-~~~~~~~
+-------
 
 .. literalinclude:: ../../license.txt
+    :language: none
