@@ -1,8 +1,0 @@
-
-Class Hierarchy
----------------
-
-- :ref:`namespace_calc_defs`
-    - :ref:`exhale_class_a00010`
-
-

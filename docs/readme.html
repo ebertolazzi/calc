@@ -6,20 +6,21 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator &#8212; Calculator v1.0
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
 
     
     
@@ -39,7 +40,7 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="C++ API" href="api-cpp/library_root.html" />
+    <link rel="next" title="PDF Manual" href="manual.html" />
     <link rel="prev" title="Calculator" href="index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
@@ -55,7 +56,7 @@
           <a href="index.html" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="api-cpp/library_root.html" title="C++ API"
+          <a href="manual.html" title="PDF Manual"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="index.html" title="Calculator"
@@ -73,17 +74,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="calculator">
+  <div class="section" id="calculator">
 <h1>Calculator<a class="headerlink" href="#calculator" title="Permalink to this headline">¶</a>
 </h1>
 <p>An Expression Evaluator Class for run-time evaluation of simple symbolic
 expressions. This is particularly suitable to facilitates the input
-process from free format files.
-(online manual <a class="reference external" href="https://ebertolazzi.github.io/calc">here</a>)</p>
-<section id="usage">
+process from free format files.</p>
+<p><strong>Online documentation is available</strong> <a class="reference external" href="https://ebertolazzi.github.io/calc">here</a>.</p>
+<p><strong>Gituh homepage</strong> <a class="reference external" href="https://github.com/ebertolazzi/calc">here</a>.</p>
+<div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a>
 </h2>
-<section id="including-the-class-calculator">
+<div class="section" id="including-the-class-calculator">
 <h3>Including the class Calculator&lt;…&gt;<a class="headerlink" href="#including-the-class-calculator" title="Permalink to this headline">¶</a>
 </h3>
 <p>The software consists of a single header file <code class="docutils literal notranslate"><span class="pre">calc.hh</span></code>. There is no
@@ -95,8 +97,8 @@ statement:</p>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">calc_load</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="instantiating-an-expression-evaluator">
+</div>
+<div class="section" id="instantiating-an-expression-evaluator">
 <h3>Instantiating an expression evaluator.<a class="headerlink" href="#instantiating-an-expression-evaluator" title="Permalink to this headline">¶</a>
 </h3>
 <p>The instantiation process of an expression evaluator requires the
@@ -107,9 +109,9 @@ specification of its template type. The statement</p>
 </div>
 <p>instantiates the object <code class="docutils literal notranslate"><span class="pre">ee</span></code> which in this case is an expression
 evaluator operating on <code class="docutils literal notranslate"><span class="pre">double</span></code>’s.</p>
-</section>
-</section>
-<section id="parsing-a-string">
+</div>
+</div>
+<div class="section" id="parsing-a-string">
 <h2>Parsing a string<a class="headerlink" href="#parsing-a-string" title="Permalink to this headline">¶</a>
 </h2>
 <p>The object <code class="docutils literal notranslate"><span class="pre">ee</span></code> can now be used to parse simple symbolic expressions
@@ -144,8 +146,8 @@ end-of-statement separator <code class="docutils literal notranslate"><span clas
 <p>In the previous example this is <code class="docutils literal notranslate"><span class="pre">a*b</span></code>.</p>
 <p>Notice also that the assignement symbol <code class="docutils literal notranslate"><span class="pre">=</span></code> makes possible the
 memorization of intermediate expression values in other variables.</p>
-</section>
-<section id="operators">
+</div>
+<div class="section" id="operators">
 <h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a>
 </h2>
 <p>The expression evaluator uses a fixed number of operators, that are
@@ -186,8 +188,8 @@ example the expression <code class="docutils literal notranslate"><span class="p
 <li><p><code class="docutils literal notranslate"><span class="pre">;</span></code> expression separator;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> assignement operator.</p></li>
 </ul>
-</section>
-<section id="predefined-functions">
+</div>
+<div class="section" id="predefined-functions">
 <h2>Predefined Functions<a class="headerlink" href="#predefined-functions" title="Permalink to this headline">¶</a>
 </h2>
 <p>In the previous section we used the function @c sin. There are a number
@@ -217,8 +219,8 @@ the following we lists them.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">atan2(x,y)</span></code> arctan of <code class="docutils literal notranslate"><span class="pre">y/x</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pow(x,y)</span></code> power <code class="docutils literal notranslate"><span class="pre">x^y</span></code></p></li>
 </ul>
-</section>
-<section id="defining-new-functions">
+</div>
+<div class="section" id="defining-new-functions">
 <h2>Defining new functions<a class="headerlink" href="#defining-new-functions" title="Permalink to this headline">¶</a>
 </h2>
 <p>A new function can be introduced into the expression evaluator by
@@ -250,8 +252,8 @@ predefined ones:</p>
 </div>
 <p>The expression evaluator is capable of handling only unary and binary
 functions, i.e. functions with one or two arguments.</p>
-</section>
-<section id="symbolic-constants">
+</div>
+<div class="section" id="symbolic-constants">
 <h2>Symbolic Constants<a class="headerlink" href="#symbolic-constants" title="Permalink to this headline">¶</a>
 </h2>
 <p>Two symbolic constants are available whose value is assigned by default:</p>
@@ -264,8 +266,8 @@ functions, i.e. functions with one or two arguments.</p>
 <div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="mf">0.5</span><span class="p">);</span>
 </pre></div>
 </div>
-</section>
-<section id="defining-new-variables">
+</div>
+<div class="section" id="defining-new-variables">
 <h2>Defining new variables<a class="headerlink" href="#defining-new-variables" title="Permalink to this headline">¶</a>
 </h2>
 <p>New variables can be introduced into the expression evaluator by using
@@ -311,8 +313,8 @@ to get out the value of a variable,</p>
 the variable <code class="docutils literal notranslate"><span class="pre">pippo</span></code> does not exist. The variable <code class="docutils literal notranslate"><span class="pre">ok</span></code> takes the
 value <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> if the variable exists or not exists
 respectively.</p>
-</section>
-<section id="parsing-a-file">
+</div>
+<div class="section" id="parsing-a-file">
 <h2>Parsing a file<a class="headerlink" href="#parsing-a-file" title="Permalink to this headline">¶</a>
 </h2>
 <p>The expression evaluator can be used to parse a complete file. The
@@ -363,8 +365,8 @@ input files are multiples:</p>
 <li><p>comments can be added everywhere therein;</p></li>
 <li><p>simple computations may be inserted as part of an input file.</p></li>
 </ul>
-</section>
-<section id="a-simple-calculator">
+</div>
+<div class="section" id="a-simple-calculator">
 <h2>A simple calculator<a class="headerlink" href="#a-simple-calculator" title="Permalink to this headline">¶</a>
 </h2>
 <p>This piece of code is a complete simple expression evaluator working as
@@ -438,8 +440,8 @@ END LIST
 &gt;
 </pre></div>
 </div>
-</section>
-<section id="developer">
+</div>
+<div class="section" id="developer">
 <h2>Developer<a class="headerlink" href="#developer" title="Permalink to this headline">¶</a>
 </h2>
 <blockquote>
@@ -467,8 +469,8 @@ END LIST
 <p>This code is inspired by the <code class="docutils literal notranslate"><span class="pre">Expression</span> <span class="pre">Evaluator</span></code>
 of Mark Morley (c) 1992.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
 
@@ -495,11 +497,7 @@ of Mark Morley (c) 1992.</p>
 <h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Calculator</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#including-the-class-calculator">Including the class Calculator&lt;…&gt;</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#instantiating-an-expression-evaluator">Instantiating an expression evaluator.</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#parsing-a-string">Parsing a string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#operators">Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#predefined-functions">Predefined Functions</a></li>
@@ -511,7 +509,8 @@ of Mark Morley (c) 1992.</p>
 <li class="toctree-l2"><a class="reference internal" href="#developer">Developer</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api-cpp/library_root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">PDF Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-cpp/root.html">C++ API</a></li>
 </ul>
 </div>
         </div>
@@ -547,7 +546,7 @@ of Mark Morley (c) 1992.</p>
           <a href="index.html" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="api-cpp/library_root.html" title="C++ API"
+          <a href="manual.html" title="PDF Manual"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="index.html" title="Calculator"
@@ -561,7 +560,7 @@ of Mark Morley (c) 1992.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Enrico Bertolazzi.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

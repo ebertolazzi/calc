@@ -1,0 +1,607 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Class Calculator &#8212; Calculator v1.0
+</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Namespace calc_load" href="namespace_calc_load.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="namespace_calc_load.html" title="Namespace calc_load"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">Calculator</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Template Class Calculator</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="template-class-calculator">
+<span id="exhale-class-a00013"></span><h1>Template Class Calculator<a class="headerlink" href="#template-class-calculator" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_calc.hh.html#file-calc-hh"><span class="std std-ref">File calc.hh</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN9calc_defs10CalculatorE">
+<span id="_CPPv3I0EN9calc_defs10CalculatorE"></span><span id="_CPPv2I0EN9calc_defs10CalculatorE"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">T_type</span></code> <span class="pre">=</span> <span class="pre">double</span><span class="pre">&gt;</span><br><span class="target" id="a00013"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calc_defs</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">Calculator</span></code><a class="headerlink" href="#_CPPv4I0EN9calc_defs10CalculatorE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>This class implement the expression evaluator </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator10value_typeE">
+<span id="_CPPv3N9calc_defs10Calculator10value_typeE"></span><span id="_CPPv2N9calc_defs10Calculator10value_typeE"></span><span id="calc_defs::Calculator::value_type"></span><span class="target" id="a00013_1a1d0431039c30cdafadde1d8d64d5410a"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4I0EN9calc_defs10CalculatorE" title="calc_defs::Calculator::T_type"><span class="pre">T_type</span></a> <code class="sig-name descname"><span class="pre">value_type</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator7pointerE">
+<span id="_CPPv3N9calc_defs10Calculator7pointerE"></span><span id="_CPPv2N9calc_defs10Calculator7pointerE"></span><span id="calc_defs::Calculator::pointer"></span><span class="target" id="a00013_1ad6d0b9ef7aea00c3050f96ba17808cf1"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <span class="pre">*</span><code class="sig-name descname"><span class="pre">pointer</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator7pointerE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator13const_pointerE">
+<span id="_CPPv3N9calc_defs10Calculator13const_pointerE"></span><span id="_CPPv2N9calc_defs10Calculator13const_pointerE"></span><span id="calc_defs::Calculator::const_pointer"></span><span class="target" id="a00013_1ab71ddbc42526f3e2d9c397922728618d"></span><em class="property"><span class="pre">typedef</span> </em><em class="property"><span class="pre">const</span></em> <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <span class="pre">*</span><code class="sig-name descname"><span class="pre">const_pointer</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator13const_pointerE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator9referenceE">
+<span id="_CPPv3N9calc_defs10Calculator9referenceE"></span><span id="_CPPv2N9calc_defs10Calculator9referenceE"></span><span id="calc_defs::Calculator::reference"></span><span class="target" id="a00013_1a6d2faea1f2a3902368c280a34882e240"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">reference</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator9referenceE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator15const_referenceE">
+<span id="_CPPv3N9calc_defs10Calculator15const_referenceE"></span><span id="_CPPv2N9calc_defs10Calculator15const_referenceE"></span><span id="calc_defs::Calculator::const_reference"></span><span class="target" id="a00013_1a91aa99ee83e1e368bd9ec45befe549d1"></span><em class="property"><span class="pre">typedef</span> </em><em class="property"><span class="pre">const</span></em> <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">const_reference</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator15const_referenceE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator10CALCULATORE">
+<span id="_CPPv3N9calc_defs10Calculator10CALCULATORE"></span><span id="_CPPv2N9calc_defs10Calculator10CALCULATORE"></span><span id="calc_defs::Calculator::CALCULATOR"></span><span class="target" id="a00013_1a9e4df845929fc5610d0f374932a047e6"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4I0EN9calc_defs10CalculatorE" title="calc_defs::Calculator"><span class="pre">Calculator</span></a><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">CALCULATOR</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator10CALCULATORE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator5Func1E">
+<span id="_CPPv3N9calc_defs10Calculator5Func1E"></span><span id="_CPPv2N9calc_defs10Calculator5Func1E"></span><span id="calc_defs::Calculator::Func1"></span><span class="target" id="a00013_1aa5c80b112cc97b3175eab8112f91d1be"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <span class="pre">(</span><span class="pre">*</span><code class="sig-name descname"><span class="pre">Func1</span></code><span class="pre">)</span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator5Func1E" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator5Func2E">
+<span id="_CPPv3N9calc_defs10Calculator5Func2E"></span><span id="_CPPv2N9calc_defs10Calculator5Func2E"></span><span id="calc_defs::Calculator::Func2"></span><span class="target" id="a00013_1a4f38b7dff191fb129726bd186cef3fce"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <span class="pre">(</span><span class="pre">*</span><code class="sig-name descname"><span class="pre">Func2</span></code><span class="pre">)</span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a>, <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator5Func2E" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator8map_fun1E">
+<span id="_CPPv3N9calc_defs10Calculator8map_fun1E"></span><span id="_CPPv2N9calc_defs10Calculator8map_fun1E"></span><span id="calc_defs::Calculator::map_fun1"></span><span class="target" id="a00013_1a7385415bd9d4142b9bbeb3b90dfa9dd1"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">map</span><span class="pre">&lt;</span><span class="pre">string</span><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator5Func1E" title="calc_defs::Calculator::Func1"><span class="pre">Func1</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">map_fun1</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator8map_fun1E" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator8map_fun2E">
+<span id="_CPPv3N9calc_defs10Calculator8map_fun2E"></span><span id="_CPPv2N9calc_defs10Calculator8map_fun2E"></span><span id="calc_defs::Calculator::map_fun2"></span><span class="target" id="a00013_1a55fc260b8a29699577a6b7eec9441ed0"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">map</span><span class="pre">&lt;</span><span class="pre">string</span><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator5Func2E" title="calc_defs::Calculator::Func2"><span class="pre">Func2</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">map_fun2</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator8map_fun2E" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator8map_realE">
+<span id="_CPPv3N9calc_defs10Calculator8map_realE"></span><span id="_CPPv2N9calc_defs10Calculator8map_realE"></span><span id="calc_defs::Calculator::map_real"></span><span class="target" id="a00013_1a4ffbaf63d5e0637fe2aff2391d07bb8b"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">map</span><span class="pre">&lt;</span><span class="pre">string</span><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">map_real</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator8map_realE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator17map_fun1_iteratorE">
+<span id="_CPPv3N9calc_defs10Calculator17map_fun1_iteratorE"></span><span id="_CPPv2N9calc_defs10Calculator17map_fun1_iteratorE"></span><span id="calc_defs::Calculator::map_fun1_iterator"></span><span class="target" id="a00013_1a914da41e922b3676b52a7af2bcc057ed"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator8map_fun1E" title="calc_defs::Calculator::map_fun1"><span class="pre">map_fun1</span></a><span class="pre">::</span><span class="pre">iterator</span> <code class="sig-name descname"><span class="pre">map_fun1_iterator</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator17map_fun1_iteratorE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator23map_fun1_const_iteratorE">
+<span id="_CPPv3N9calc_defs10Calculator23map_fun1_const_iteratorE"></span><span id="_CPPv2N9calc_defs10Calculator23map_fun1_const_iteratorE"></span><span id="calc_defs::Calculator::map_fun1_const_iterator"></span><span class="target" id="a00013_1ad30fcfa7b02c5e13ac9a1f52ff517558"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator8map_fun1E" title="calc_defs::Calculator::map_fun1"><span class="pre">map_fun1</span></a><span class="pre">::</span><span class="pre">const_iterator</span> <code class="sig-name descname"><span class="pre">map_fun1_const_iterator</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator23map_fun1_const_iteratorE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator17map_fun2_iteratorE">
+<span id="_CPPv3N9calc_defs10Calculator17map_fun2_iteratorE"></span><span id="_CPPv2N9calc_defs10Calculator17map_fun2_iteratorE"></span><span id="calc_defs::Calculator::map_fun2_iterator"></span><span class="target" id="a00013_1a9b238d7db7318b15558ef8694cedc4ef"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator8map_fun2E" title="calc_defs::Calculator::map_fun2"><span class="pre">map_fun2</span></a><span class="pre">::</span><span class="pre">iterator</span> <code class="sig-name descname"><span class="pre">map_fun2_iterator</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator17map_fun2_iteratorE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator23map_fun2_const_iteratorE">
+<span id="_CPPv3N9calc_defs10Calculator23map_fun2_const_iteratorE"></span><span id="_CPPv2N9calc_defs10Calculator23map_fun2_const_iteratorE"></span><span id="calc_defs::Calculator::map_fun2_const_iterator"></span><span class="target" id="a00013_1a4048464174741ca8586d70ea4d2969d9"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator8map_fun2E" title="calc_defs::Calculator::map_fun2"><span class="pre">map_fun2</span></a><span class="pre">::</span><span class="pre">const_iterator</span> <code class="sig-name descname"><span class="pre">map_fun2_const_iterator</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator23map_fun2_const_iteratorE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator17map_real_iteratorE">
+<span id="_CPPv3N9calc_defs10Calculator17map_real_iteratorE"></span><span id="_CPPv2N9calc_defs10Calculator17map_real_iteratorE"></span><span id="calc_defs::Calculator::map_real_iterator"></span><span class="target" id="a00013_1a50f93bafea8108b3358938c70c9b34f4"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator8map_realE" title="calc_defs::Calculator::map_real"><span class="pre">map_real</span></a><span class="pre">::</span><span class="pre">iterator</span> <code class="sig-name descname"><span class="pre">map_real_iterator</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator17map_real_iteratorE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N9calc_defs10Calculator23map_real_const_iteratorE">
+<span id="_CPPv3N9calc_defs10Calculator23map_real_const_iteratorE"></span><span id="_CPPv2N9calc_defs10Calculator23map_real_const_iteratorE"></span><span id="calc_defs::Calculator::map_real_const_iterator"></span><span class="target" id="a00013_1ac39caa4617cdf62e19ca6868d2108973"></span><em class="property"><span class="pre">typedef</span> </em><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator8map_realE" title="calc_defs::Calculator::map_real"><span class="pre">map_real</span></a><span class="pre">::</span><span class="pre">const_iterator</span> <code class="sig-name descname"><span class="pre">map_real_const_iterator</span></code><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator23map_real_const_iteratorE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator10CalculatorEv">
+<span id="_CPPv3N9calc_defs10Calculator10CalculatorEv"></span><span id="_CPPv2N9calc_defs10Calculator10CalculatorEv"></span><span id="calc_defs::Calculator::Calculator__void"></span><span class="target" id="a00013_1a36d717673ff8adcbaf14b00a029c0f5f"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">Calculator</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator10CalculatorEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10CalculatorD0Ev">
+<span id="_CPPv3N9calc_defs10CalculatorD0Ev"></span><span id="_CPPv2N9calc_defs10CalculatorD0Ev"></span><span id="calc_defs::Calculator::~Calculator__void"></span><span class="target" id="a00013_1a7b1c0c80c884021a74773ccc71be9f9d"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">~Calculator</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10CalculatorD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator4initEv">
+<span id="_CPPv3N9calc_defs10Calculator4initEv"></span><span id="_CPPv2N9calc_defs10Calculator4initEv"></span><span id="calc_defs::Calculator::init__void"></span><span class="target" id="a00013_1a3c61f4efb5808e07ee2b1185fa1b595b"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">init</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator4initEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator5parseEPKc">
+<span id="_CPPv3N9calc_defs10Calculator5parseEPKc"></span><span id="_CPPv2N9calc_defs10Calculator5parseEPKc"></span><span id="calc_defs::Calculator::parse__cCP"></span><span class="target" id="a00013_1ac5412b822d52a49d6d842cfcb75731cc"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">parse</span></code><span class="sig-paren">(</span><span class="pre">char</span> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator5parseEPKc" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>This method do a parsing of an input string </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>str</strong> – the input string to be parsed </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p>true if no error parsing errors are found </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator5parseERK6string">
+<span id="_CPPv3N9calc_defs10Calculator5parseERK6string"></span><span id="_CPPv2N9calc_defs10Calculator5parseERK6string"></span><span id="calc_defs::Calculator::parse__stringCR"></span><span class="target" id="a00013_1aaa182729bc8fb57d639a4eae3511d760"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">parse</span></code><span class="sig-paren">(</span><span class="pre">string</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator5parseERK6string" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator10parse_fileEPKcbR7ostream">
+<span id="_CPPv3N9calc_defs10Calculator10parse_fileEPKcbR7ostream"></span><span id="_CPPv2N9calc_defs10Calculator10parse_fileEPKcbR7ostream"></span><span id="calc_defs::Calculator::parse_file__cCP.b.ostreamR"></span><span class="target" id="a00013_1a1a2153e8c547ad2e49b07527841d2367"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">parse_file</span></code><span class="sig-paren">(</span><span class="pre">char</span> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">name</span></em>, <span class="pre">bool</span> <em><span class="pre">show_err</span></em> <span class="pre">=</span> <span class="pre">false</span>, <span class="pre">ostream</span> <span class="pre">&amp;</span><em><span class="pre">stream</span></em> <span class="pre">=</span> <span class="pre">cerr</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator10parse_fileEPKcbR7ostream" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>This method do a parsing of a whole file </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>name</strong> – the name of the input file </p></li>
+<li><p><strong>show_err</strong> – true if you wand message on error parsing </p></li>
+<li><p><strong>stream</strong> – stream for the error messages </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator10parse_fileERK6stringbR7ostream">
+<span id="_CPPv3N9calc_defs10Calculator10parse_fileERK6stringbR7ostream"></span><span id="_CPPv2N9calc_defs10Calculator10parse_fileERK6stringbR7ostream"></span><span id="calc_defs::Calculator::parse_file__stringCR.b.ostreamR"></span><span class="target" id="a00013_1ae2400b4187480378d572a3feed42064a"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">parse_file</span></code><span class="sig-paren">(</span><span class="pre">string</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">name</span></em>, <span class="pre">bool</span> <em><span class="pre">show_err</span></em> <span class="pre">=</span> <span class="pre">false</span>, <span class="pre">ostream</span> <span class="pre">&amp;</span><em><span class="pre">stream</span></em> <span class="pre">=</span> <span class="pre">cerr</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator10parse_fileERK6stringbR7ostream" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator12report_errorER7ostream">
+<span id="_CPPv3N9calc_defs10Calculator12report_errorER7ostream"></span><span id="_CPPv2N9calc_defs10Calculator12report_errorER7ostream"></span><span id="calc_defs::Calculator::report_error__ostreamR"></span><span class="target" id="a00013_1a617d98835eb24ca7bd2f173b58d58391"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">report_error</span></code><span class="sig-paren">(</span><span class="pre">ostream</span> <span class="pre">&amp;</span><em><span class="pre">s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator12report_errorER7ostream" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Print the last error found, noe if no error are found </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>s</strong> – the object stream of output </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9calc_defs10Calculator9get_valueEv">
+<span id="_CPPv3NK9calc_defs10Calculator9get_valueEv"></span><span id="_CPPv2NK9calc_defs10Calculator9get_valueEv"></span><span id="calc_defs::Calculator::get_valueC"></span><span class="target" id="a00013_1af6c74319371932c08cd190d121f2d6cc"></span><em class="property"><span class="pre">inline</span></em> <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator15const_referenceE" title="calc_defs::Calculator::const_reference"><span class="pre">const_reference</span></a> <code class="sig-name descname"><span class="pre">get_value</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK9calc_defs10Calculator9get_valueEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>\eturn the value of the last evaluated expression </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator3setERK6string10value_type">
+<span id="_CPPv3N9calc_defs10Calculator3setERK6string10value_type"></span><span id="_CPPv2N9calc_defs10Calculator3setERK6string10value_type"></span><span id="calc_defs::Calculator::set__stringCR.value_type"></span><span class="target" id="a00013_1a647a9aacb23d54b56d48b4f218a9f8f0"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><span class="pre">string</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">name</span></em>, <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <em><span class="pre">val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator3setERK6string10value_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set or define a variable </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>name</strong> – the name of the variable </p></li>
+<li><p><strong>val</strong> – the value to be stored </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator3setEPKc10value_type">
+<span id="_CPPv3N9calc_defs10Calculator3setEPKc10value_type"></span><span id="_CPPv2N9calc_defs10Calculator3setEPKc10value_type"></span><span id="calc_defs::Calculator::set__cCP.value_type"></span><span class="target" id="a00013_1a94330e80aebf8210a3cbe862c5804e51"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><span class="pre">char</span> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">name</span></em>, <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <em><span class="pre">val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator3setEPKc10value_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator4dropERK6string">
+<span id="_CPPv3N9calc_defs10Calculator4dropERK6string"></span><span id="_CPPv2N9calc_defs10Calculator4dropERK6string"></span><span id="calc_defs::Calculator::drop__stringCR"></span><span class="target" id="a00013_1a9b9c02c03fb0a7d1410ebbed344565fe"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">drop</span></code><span class="sig-paren">(</span><span class="pre">string</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator4dropERK6string" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Look if a variable exists and remove from the list </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>name</strong> – the name of the variable </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p>true if the variable exists and is dropped </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator4dropEPKc">
+<span id="_CPPv3N9calc_defs10Calculator4dropEPKc"></span><span id="_CPPv2N9calc_defs10Calculator4dropEPKc"></span><span id="calc_defs::Calculator::drop__cCP"></span><span class="target" id="a00013_1ae9725e375ec01c82c1da50c901ebd3a3"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">drop</span></code><span class="sig-paren">(</span><span class="pre">char</span> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator4dropEPKc" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9calc_defs10Calculator5existERK6string">
+<span id="_CPPv3NK9calc_defs10Calculator5existERK6string"></span><span id="_CPPv2NK9calc_defs10Calculator5existERK6string"></span><span id="calc_defs::Calculator::exist__stringCRC"></span><span class="target" id="a00013_1ab1a3f66e1bb33fbc0dd5a98163076006"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">exist</span></code><span class="sig-paren">(</span><span class="pre">string</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">name</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK9calc_defs10Calculator5existERK6string" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Look if a variable exists </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>name</strong> – the name of the variable </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p>true if the variable exists </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9calc_defs10Calculator5existEA_Kc">
+<span id="_CPPv3NK9calc_defs10Calculator5existEA_Kc"></span><span id="_CPPv2NK9calc_defs10Calculator5existEA_Kc"></span><span id="calc_defs::Calculator::exist__cCAC"></span><span class="target" id="a00013_1a2edf5f0229de06f35d0c2a21f764771b"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">exist</span></code><span class="sig-paren">(</span><span class="pre">char</span> <em class="property"><span class="pre">const</span></em> <em><span class="pre">name</span></em><span class="pre">[</span><span class="pre">]</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK9calc_defs10Calculator5existEA_Kc" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator3getERK6stringRb">
+<span id="_CPPv3N9calc_defs10Calculator3getERK6stringRb"></span><span id="_CPPv2N9calc_defs10Calculator3getERK6stringRb"></span><span id="calc_defs::Calculator::get__stringCR.bR"></span><span class="target" id="a00013_1ae3d2b57ea982d767ad07e5103271415d"></span><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><span class="pre">string</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">name</span></em>, <span class="pre">bool</span> <span class="pre">&amp;</span><em><span class="pre">ok</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator3getERK6stringRb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>name</strong> – the name of the variable </p></li>
+<li><p><strong>ok</strong> – true if the variable exists </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even">
+<p>the value of the variable </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator3getEPKcRb">
+<span id="_CPPv3N9calc_defs10Calculator3getEPKcRb"></span><span id="_CPPv2N9calc_defs10Calculator3getEPKcRb"></span><span id="calc_defs::Calculator::get__cCP.bR"></span><span class="target" id="a00013_1a792a231edb17022521a9ac643c04be99"></span><em class="property"><span class="pre">inline</span></em> <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator10value_typeE" title="calc_defs::Calculator::value_type"><span class="pre">value_type</span></a> <code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><span class="pre">char</span> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">name</span></em>, <span class="pre">bool</span> <span class="pre">&amp;</span><em><span class="pre">ok</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator3getEPKcRb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9calc_defs10Calculator5printER7ostream">
+<span id="_CPPv3NK9calc_defs10Calculator5printER7ostream"></span><span id="_CPPv2NK9calc_defs10Calculator5printER7ostream"></span><span id="calc_defs::Calculator::print__ostreamRC"></span><span class="target" id="a00013_1aafb30139e6d3cf2c4a5c35f8eadc0d0d"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">print</span></code><span class="sig-paren">(</span><span class="pre">ostream</span> <span class="pre">&amp;</span><em><span class="pre">s</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK9calc_defs10Calculator5printER7ostream" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Print internal status of the parser: the list of the variables constants and functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>s</strong> – the object stream of output </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator13set_unary_funEPKc5Func1">
+<span id="_CPPv3N9calc_defs10Calculator13set_unary_funEPKc5Func1"></span><span id="_CPPv2N9calc_defs10Calculator13set_unary_funEPKc5Func1"></span><span id="calc_defs::Calculator::set_unary_fun__cCP.Func1"></span><span class="target" id="a00013_1a98e1dbf64558670a788cf7022792eb49"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">set_unary_fun</span></code><span class="sig-paren">(</span><span class="pre">char</span> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">f_name</span></em>, <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator5Func1E" title="calc_defs::Calculator::Func1"><span class="pre">Func1</span></a> <em><span class="pre">f_ptr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator13set_unary_funEPKc5Func1" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Add unary function to the parser </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>f_name</strong> – function name </p></li>
+<li><p><strong>f_ptr</strong> – pointer to the function routine </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator13set_unary_funERK6string5Func1">
+<span id="_CPPv3N9calc_defs10Calculator13set_unary_funERK6string5Func1"></span><span id="_CPPv2N9calc_defs10Calculator13set_unary_funERK6string5Func1"></span><span id="calc_defs::Calculator::set_unary_fun__stringCR.Func1"></span><span class="target" id="a00013_1ab7861253928ec2255621bbecf8afe8b2"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">set_unary_fun</span></code><span class="sig-paren">(</span><span class="pre">string</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">f_name</span></em>, <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator5Func1E" title="calc_defs::Calculator::Func1"><span class="pre">Func1</span></a> <em><span class="pre">f_ptr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator13set_unary_funERK6string5Func1" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator14set_binary_funEPKc5Func2">
+<span id="_CPPv3N9calc_defs10Calculator14set_binary_funEPKc5Func2"></span><span id="_CPPv2N9calc_defs10Calculator14set_binary_funEPKc5Func2"></span><span id="calc_defs::Calculator::set_binary_fun__cCP.Func2"></span><span class="target" id="a00013_1a46529444e18896484149d2e369d32afd"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">set_binary_fun</span></code><span class="sig-paren">(</span><span class="pre">char</span> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">f_name</span></em>, <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator5Func2E" title="calc_defs::Calculator::Func2"><span class="pre">Func2</span></a> <em><span class="pre">f_ptr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator14set_binary_funEPKc5Func2" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Add binary function to the parser </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>f_name</strong> – function name </p></li>
+<li><p><strong>f_ptr</strong> – pointer to the function routine </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator14set_binary_funERK6string5Func2">
+<span id="_CPPv3N9calc_defs10Calculator14set_binary_funERK6string5Func2"></span><span id="_CPPv2N9calc_defs10Calculator14set_binary_funERK6string5Func2"></span><span id="calc_defs::Calculator::set_binary_fun__stringCR.Func2"></span><span class="target" id="a00013_1a0a9edc08052724315840ad37b4798b5a"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">set_binary_fun</span></code><span class="sig-paren">(</span><span class="pre">string</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">f_name</span></em>, <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator5Func2E" title="calc_defs::Calculator::Func2"><span class="pre">Func2</span></a> <em><span class="pre">f_ptr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator14set_binary_funERK6string5Func2" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9calc_defs10Calculator8no_errorEv">
+<span id="_CPPv3NK9calc_defs10Calculator8no_errorEv"></span><span id="_CPPv2NK9calc_defs10Calculator8no_errorEv"></span><span id="calc_defs::Calculator::no_errorC"></span><span class="target" id="a00013_1ade6e17593fb3d80d626297b57b0e9b35"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">no_error</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK9calc_defs10Calculator8no_errorEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p>true if no error found </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK9calc_defs10Calculator13variables_mapEv">
+<span id="_CPPv3NK9calc_defs10Calculator13variables_mapEv"></span><span id="_CPPv2NK9calc_defs10Calculator13variables_mapEv"></span><span id="calc_defs::Calculator::variables_mapC"></span><span class="target" id="a00013_1a6392aec693ffc4a8a9267736e74a1bba"></span><em class="property"><span class="pre">inline</span></em> <a class="reference internal" href="#_CPPv4N9calc_defs10Calculator8map_realE" title="calc_defs::Calculator::map_real"><span class="pre">map_real</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">variables_map</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK9calc_defs10Calculator13variables_mapEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p>a reference of the variables map. </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N9calc_defs10Calculator15variables_mergeERK8map_real">
+<span id="_CPPv3N9calc_defs10Calculator15variables_mergeERK8map_real"></span><span id="_CPPv2N9calc_defs10Calculator15variables_mergeERK8map_real"></span><span id="calc_defs::Calculator::variables_merge__map_realCR"></span><span class="target" id="a00013_1a80820b3decb8c5664c3f39fc3a64c456"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">variables_merge</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N9calc_defs10Calculator8map_realE" title="calc_defs::Calculator::map_real"><span class="pre">map_real</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">ee_vars</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9calc_defs10Calculator15variables_mergeERK8map_real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd">
+<p>a reference of the variables map. </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/99-999775_calculate-the-cost-price-calculate-icon.png" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Calculator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual.html">PDF Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="namespace_calc_load.html" title="Namespace calc_load"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">Calculator</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Template Class Calculator</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Enrico Bertolazzi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

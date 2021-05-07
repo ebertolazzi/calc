@@ -8,3 +8,4 @@ docs_build/xml-*
 old
 tests/calc_test
 tests/testall
+docs_build/sphinx/_doxygen

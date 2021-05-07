@@ -1,7 +1,0 @@
-
-File Hierarchy
---------------
-
-- :ref:`file_calc.hh`
-
-
